@@ -1,13 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- <img src="./assets/logo.png"> -->
+    <AssistantComponent v-bind:pageNames="pagesName"></AssistantComponent>
     <router-view/>
   </div>
 </template>
 
 <script>
+import AssistantComponent from '@/components/AssistantComponent'
+import { mapGetters } from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapGetters(['pagesName'])
+  },
+  components: {
+    AssistantComponent
+  }
 }
 </script>
 
@@ -18,6 +27,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 </style>
